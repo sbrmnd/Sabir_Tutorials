@@ -1,0 +1,74 @@
+﻿<ConnectorInfo>
+  <Id>Office365Connector</Id>
+  <Name>Microsoft Office 365 Connector</Name>
+  <IsSyncEngineConnector>true</IsSyncEngineConnector>
+  <ImplementationDll>ActiveRoles.SyncService.Connectors.Office365Connector, Version=7.4.2.0, Culture=neutral, PublicKeyToken=37ba620bec38a887</ImplementationDll>
+  <ImplementationType>ActiveRoles.SyncService.Connectors.Office365Connector.Office365Connector</ImplementationType>
+  <Description>Allows you to synchronize data between Microsoft Office 365 and other connected systems.</Description>
+  <UniqueID>ObjectID</UniqueID>
+  <CanChangeUniqueID>false</CanChangeUniqueID>
+  <IsNotLicensed>true</IsNotLicensed>
+  <SupportsContainers>false</SupportsContainers>
+  <SupportsDeltaImport>true</SupportsDeltaImport>
+  
+  <SupportsNames>false</SupportsNames>
+  <SupportsMove>false</SupportsMove>
+  <SupportsRename>false</SupportsRename>
+  <SupportsProvisionNames>false</SupportsProvisionNames>
+  <SupportsCascadeImport>true</SupportsCascadeImport>
+  
+  <UI>
+    <ImplementationDll>ActiveRoles.SyncService.Connectors.Office365ConnectorUI, Version=7.4.2.0, Culture=neutral, PublicKeyToken=37ba620bec38a887</ImplementationDll>
+    <ImplementationType>ActiveRoles.SyncService.Connectors.Office365ConnectorUI.ConnectorPageManager</ImplementationType>
+  </UI>
+  
+  <CanBePasswordSyncTarget>true</CanBePasswordSyncTarget>
+  <PasswordSyncIsOnByDefault>true</PasswordSyncIsOnByDefault>
+  <PasswordsConfiguration>
+    <PasswordConfigurationEntry>
+      <ObjectType>User</ObjectType>
+      <OldPwdAttr></OldPwdAttr>
+      <PwdAttr>Password</PwdAttr>
+    </PasswordConfigurationEntry>
+  </PasswordsConfiguration>
+  <AccountControlConfiguration>
+    <AccountControlConfigurationEntry>
+      <ObjectType>User</ObjectType>
+      <ChangePasswordAtNextLogon>ForceChangePasswordNextLogin</ChangePasswordAtNextLogon>
+      <PasswordNeverExpires>PasswordNeverExpires</PasswordNeverExpires>
+      <AccountIsDisabled>BlockCredential</AccountIsDisabled>
+    </AccountControlConfigurationEntry>
+  </AccountControlConfiguration>
+  
+
+  <ConnectionParameterDefinitions>
+    <ConnectionParameterDefinition>
+      <Name>ServiceAPIUrl</Name>
+      <Description>Specify Office 365 API URL (for PowerShell Remoting)</Description>
+      <DefaultValue>https://ps.outlook.com/powershell</DefaultValue>
+      <IsEncrypted>false</IsEncrypted>
+      <Required>true</Required>
+    </ConnectionParameterDefinition>
+    <ConnectionParameterDefinition>
+      <Name>AdministratorLogin</Name>
+      <Description>Administrative login name to manage Microsoft Office 365 environment</Description>
+      <DefaultValue></DefaultValue>
+      <IsEncrypted>false</IsEncrypted>
+      <Required>true</Required>
+    </ConnectionParameterDefinition>
+    <ConnectionParameterDefinition>
+      <Name>AdministratorPassword</Name>
+      <Description>Administrative password to manage Microsoft Office 365 environment</Description>
+      <DefaultValue></DefaultValue>
+      <IsEncrypted>true</IsEncrypted>
+      <Required>true</Required>
+    </ConnectionParameterDefinition>
+  </ConnectionParameterDefinitions>
+
+  <SelfConfig>
+    <Tenants>
+      <Tenant Name="Tenant1" ModernAuthenticationEnabled="true"/>
+      <Tenant Name="Tenant2" ModernAuthenticationEnabled="true"/>
+    </Tenants>
+  </SelfConfig>
+</ConnectorInfo>
